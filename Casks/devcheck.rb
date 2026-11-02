@@ -11,6 +11,13 @@ cask "devcheck" do
 
   app "DevCheck.app"
 
+  caveats <<~EOS
+    DevCheck is ad-hoc signed (no Apple Developer ID yet), so macOS marks the
+    download as quarantined and refuses to launch it. Clear the flag once:
+
+      xattr -dr com.apple.quarantine /Applications/DevCheck.app
+  EOS
+
   zap trash: [
     "~/Library/Preferences/local.devcheck.plist",
   ]
