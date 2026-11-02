@@ -9,10 +9,6 @@ cask "devcheck" do
 
   depends_on macos: :sonoma
 
-  # 构建是 ad-hoc 签名（未走 Developer ID 公证），macOS 会因 quarantine 属性
-  # 直接 SIGKILL。这里不写 quarantine 标记，让 brew 安装后即可运行。
-  quarantine false
-
   app "DevCheck.app"
 
   zap trash: [
