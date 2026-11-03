@@ -11,6 +11,9 @@ cask "devcheck" do
 
   app "DevCheck.app"
 
+  # 把 CLI 链进 PATH，否则 README 里的 `devcheck why 5000` 用不了
+  binary "#{appdir}/DevCheck.app/Contents/MacOS/DevCheck"
+
   caveats <<~EOS
     DevCheck is ad-hoc signed (no Apple Developer ID yet), so macOS marks the
     download as quarantined and refuses to launch it. Clear the flag once:
